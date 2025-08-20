@@ -1,22 +1,42 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
+    char estadoC1[1], estadoC2[1];
+    char codigoC1[3], codigoC2[3];
+    char cidadeC1[50], cidadeC2[50];
+    int populacaoC1, populacaoC2;
+    float areaC1, areaC2;
+    float pibC1, pibC2;
+    int pontosTuristicosC1, pontosTuristicosC2;
+
+    printf("Informe a letra do estado: \n");
+    scanf("%c", &estadoC1);
+
+    printf("Informe o código da carta: \n");
+    scanf("%s", &codigoC1);
+
+    printf("Informe o nome da cidade: \n");
+    scanf("%s", &cidadeC1);
+
+    printf("Informe a população dessa cidade: \n");
+    scanf("%d", &populacaoC1);
+
+    printf("Informe a área em km²: \n");
+    scanf("%f", &areaC1);
+
+    printf("Informe o PIB da cidade: \n");
+    scanf("%f", &pibC1);
+
+    printf("Informe a quantidade de pontos turisticos: \n");
+    scanf("%d", &pontosTuristicosC1);  
     
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    printf("------------------------------------------ \n");
+    printf("Carta 1: \n Estado: %c \n", estadoC1);
+    printf(" Código: %s \n Nome da Cidade: %s \n ", codigoC1, cidadeC1);
+    printf(" População: %d \n Área: %.2f km² \n PIB: %.2f bilhões de reais \n", populacaoC1, areaC1, pibC1);
+    printf(" Número de Pontos Turísticos: %d \n", pontosTuristicosC1);
+    printf("------------------------------------------ \n");
 
     return 0;
 }
