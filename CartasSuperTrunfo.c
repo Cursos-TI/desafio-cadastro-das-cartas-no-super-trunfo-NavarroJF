@@ -1,82 +1,126 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
+
+    // Declaração das variaveis 
     
-    char estadoC1[2], estadoC2[2];
+    char estadoC1;
+    char estadoC2;
     char codigoC1[4], codigoC2[4];
     char cidadeC1[50], cidadeC2[50];
-    int populacaoC1, populacaoC2;
+    unsigned long int populacaoC1, populacaoC2;
     float areaC1, areaC2;
     float pibC1, pibC2;
     int pontosTuristicosC1, pontosTuristicosC2;
     float densidadePopulacionalC1, densidadePopulacionalC2;
     float pibPerCapitaC1,pibPerCapitaC2;
+    float superPoderC1, superPoderC2;
 
-    printf("Informe a letra do estado: \n");
-    scanf("%s", estadoC1);
+    // Entrada de dados primeira carta
 
-    printf("Informe o código da carta: \n");
+    printf("     Cadastro da Carta 1:   \n \n");
+
+    printf("Informe a letra do estado (Ex: A-H): \n");
+    scanf(" %c", &estadoC1);
+
+    printf("Informe o código da carta (Ex: A01): \n");
     scanf("%s", codigoC1);
 
+    getchar(); // Consome o '\n' deixado pelo scanf
+
     printf("Informe o nome da cidade: \n");
-    scanf("%s", cidadeC1);
+    fgets(cidadeC1, 50, stdin); 
+    cidadeC1[strcspn(cidadeC1, "\n")] = '\0'; // Remove o '\n'
 
     printf("Informe a população dessa cidade: \n");
-    scanf("%d", &populacaoC1);
+    scanf("%lu", &populacaoC1);
 
     printf("Informe a área em km²: \n");
     scanf("%f", &areaC1);
 
-    printf("Informe o PIB da cidade: \n");
+    printf("Informe o PIB da cidade (em Bilhão): \n");
     scanf("%f", &pibC1);
 
     printf("Informe a quantidade de pontos turisticos: \n");
     scanf("%d", &pontosTuristicosC1);  
 
-    densidadePopulacionalC1 = populacaoC1 / areaC1;
-    pibPerCapitaC1 = pibC1 / populacaoC1;
+    // Cálculos para a primeira carta
+     
+     densidadePopulacionalC1 = populacaoC1 / areaC1;
+     pibPerCapitaC1 = (pibC1 * 1000000000) / populacaoC1;
+     superPoderC1 = (float)populacaoC1 + areaC1 + (pibC1*1000000000) + pontosTuristicosC1 + pibPerCapitaC1 + (1 / densidadePopulacionalC1);
+
+
+    // Leitura da carta 1
+    printf("------------------------------------------ \n");
+    printf("Carta 1: \n Estado: %c \n", estadoC1);
+    printf(" Código: %s \n Nome da Cidade: %s \n", codigoC1, cidadeC1);
+    printf(" População: %lu \n Área: %.2f km² \n PIB: %.2f bilhões de reais \n", populacaoC1, areaC1, pibC1);
+    printf(" Número de Pontos Turísticos: %d \n", pontosTuristicosC1);
+    printf(" Densidade Populacional: %.2f hab/km² \n", densidadePopulacionalC1);
+    printf(" PIB Per Capita: %.2f reais \n", pibPerCapitaC1);
+    printf(" Super Poder: %.2f \n", superPoderC1);
+    printf("------------------------------------------ \n");
 
     
-    printf("------------------------------------------ \n");
-    printf("Carta 1: \n Estado: %s \n", estadoC1);
-    printf(" Código: %s \n Nome da Cidade: %s \n", codigoC1, cidadeC1);
-    printf(" População: %d \n Área: %.2f km² \n PIB: %.2f bilhões de reais \n", populacaoC1, areaC1, pibC1);
-    printf(" Número de Pontos Turísticos: %d \n", pontosTuristicosC1);
-    printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacionalC1);
-    printf("PIB Per Capita: %.2f reais \n", pibPerCapitaC1);
-    printf("------------------------------------------ \n");
+    // Entrada de dados segunda carta
 
-    printf("Informe a letra do estado: \n");
-    scanf("%s", estadoC2);
+    printf("     Cadastro da Carta 2:    \n \n");
 
-    printf("Informe o código da carta: \n");
+    printf("Informe a letra do estado (Ex: A-H): \n");
+    scanf(" %c", &estadoC2);
+
+    printf("Informe o código da carta (Ex: A01): \n");
     scanf("%s", codigoC2);
 
+    getchar();
+    
     printf("Informe o nome da cidade: \n");
-    scanf("%s", cidadeC2);
+    fgets(cidadeC2, 50, stdin); 
+    cidadeC2[strcspn(cidadeC2, "\n")] = '\0';
 
     printf("Informe a população dessa cidade: \n");
-    scanf("%d", &populacaoC2);
+    scanf("%lu", &populacaoC2);
 
     printf("Informe a área em km²: \n");
     scanf("%f", &areaC2);
 
-    printf("Informe o PIB da cidade: \n");
+    printf("Informe o PIB da cidade (em Bilhão): \n");
     scanf("%f", &pibC2);
 
     printf("Informe a quantidade de pontos turisticos: \n");
     scanf("%d", &pontosTuristicosC2);  
 
+    // Cálculos para a segunda carta
+
     densidadePopulacionalC2 = populacaoC2 / areaC2;
-    pibPerCapitaC2 = pibC2 / populacaoC2;
-    
+    pibPerCapitaC2 = (pibC2 * 1000000000) / populacaoC2;
+    superPoderC1 = (float)populacaoC2 + areaC2 + (pibC2*1000000000) + pontosTuristicosC2 + pibPerCapitaC2 + (1 / densidadePopulacionalC2);
+
+    // Leitura da carta 2
+
     printf("------------------------------------------ \n");
-    printf("Carta 1: \n Estado: %s \n", estadoC2);
+    printf("Carta 1: \n Estado: %c \n", estadoC2);
     printf(" Código: %s \n Nome da Cidade: %s \n", codigoC2, cidadeC2);
-    printf(" População: %d \n Área: %.2f km² \n PIB: %.2f bilhões de reais \n", populacaoC2, areaC2, pibC2);
+    printf(" População: %lu \n Área: %.2f km² \n PIB: %.2f bilhões de reais \n", populacaoC2, areaC2, pibC2);
     printf(" Número de Pontos Turísticos: %d \n", pontosTuristicosC2);
     printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacionalC2);
     printf("PIB Per Capita: %.2f reais \n", pibPerCapitaC2);
+    printf(" Super Poder: %.2f \n", superPoderC2);
+    printf("------------------------------------------ \n");
+
+    // Comparação das cartas
+    printf("------------------------------------------ \n");
+    printf("Comparação das Cartas \n");
+    printf("Se der 1 Carta 1 venceu, se der 0 Carta 2 venceu\n");
+    printf(" População: %d \n", (populacaoC1 > populacaoC2));
+    printf(" Área: %d \n", (areaC1 > areaC2));
+    printf(" PIB: %d \n", (pibC1 > pibC2));
+    printf(" Pontos Turísticos: %d \n", (pontosTuristicosC1 > pontosTuristicosC2));
+    printf(" Densidade Populacional: %d \n", (densidadePopulacionalC1 < densidadePopulacionalC2));
+    printf(" PIB per Capita: %d \n", (pibPerCapitaC1 > pibPerCapitaC2));
+    printf(" Super Poder: %d \n", (superPoderC1 > superPoderC2));
     printf("------------------------------------------ \n");
     
     return 0;
